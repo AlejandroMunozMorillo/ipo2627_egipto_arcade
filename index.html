@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Juego arcade de naves desarrollado con Canvas API">
+    <title>Arcade espacial</title>
+    <link rel="stylesheet" href="style.css">
+    <script type="module" src="script.js"></script>
+</head>
+<body>
+    <header class="cabecera">
+        <div class="cabecera__contenido">
+            <div>
+                <h1 class="cabecera__titulo">Arcade espacial</h1>
+                <p class="cabecera__descripcion">Defiende tu nave y consigue la mayor puntuación</p>
+            </div>
+            <div class="ayuda">
+                <button class="ayuda__boton" id="boton-ayuda" type="button" aria-expanded="false" aria-controls="panel-ayuda">?</button>
+                <aside class="ayuda__panel" id="panel-ayuda" hidden>
+                    <h2 class="ayuda__titulo">Cómo jugar</h2>
+                    <p>Muévete con ← → o con las teclas A y D.</p>
+                    <p>Dispara manteniendo pulsada la barra espaciadora.</p>
+                    <p>Cada enemigo destruido suma 100 puntos.</p>
+                    <p>Si un enemigo alcanza tu nave o llega al final, pierdes una vida.</p>
+                </aside>
+            </div>
+        </div>
+    </header>
+
+    <main class="principal">
+        <aside class="controles" aria-labelledby="controles-titulo">
+            <h2 class="controles__titulo" id="controles-titulo">Partida</h2>
+            <div class="controles__grupo">
+                <label class="controles__etiqueta" for="dificultad">Dificultad</label>
+                <select class="controles__control" id="dificultad">
+                    <option value="facil">Fácil</option>
+                    <option value="normal" selected>Normal</option>
+                    <option value="dificil">Difícil</option>
+                </select>
+            </div>
+            <button class="controles__boton controles__boton--principal" id="boton-iniciar" type="button">Comenzar partida</button>
+            <button class="controles__boton" id="boton-pausa" type="button" disabled>Pausar</button>
+            <button class="controles__boton controles__boton--peligro" id="boton-finalizar" type="button" disabled>Finalizar</button>
+            <div class="controles__teclas">
+                <p><strong>Movimiento:</strong> ← → / A D</p>
+                <p><strong>Disparo:</strong> Espacio</p>
+            </div>
+        </aside>
+
+        <section class="juego" aria-labelledby="juego-titulo">
+            <header class="juego__cabecera">
+                <div>
+                    <h2 class="juego__titulo" id="juego-titulo">Zona de juego</h2>
+                    <p class="juego__estado" id="estado" aria-live="polite">Pulsa comenzar para jugar</p>
+                </div>
+                <div class="marcador">
+                    <div class="marcador__dato">
+                        <span class="marcador__etiqueta">Puntos</span>
+                        <strong class="marcador__valor" id="puntuacion">0</strong>
+                    </div>
+                    <div class="marcador__dato">
+                        <span class="marcador__etiqueta">Vidas</span>
+                        <strong class="marcador__valor" id="vidas">3</strong>
+                    </div>
+                </div>
+            </header>
+            <div class="canvas-contenedor">
+                <canvas class="juego__canvas" id="canvas-juego" width="760" height="520" aria-label="Juego arcade espacial">
+                    Tu navegador no soporta Canvas.
+                </canvas>
+            </div>
+        </section>
+    </main>
+
+    <footer class="pie">
+        <p class="pie__texto">Arcade espacial · Canvas API · HTML, CSS y JavaScript</p>
+    </footer>
+</body>
+</html>
